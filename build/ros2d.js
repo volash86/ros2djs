@@ -1129,6 +1129,7 @@ ROS2D.Viewer.prototype.shift = function(x, y) {
   this.scene.y += (y * this.scene.scaleY);
 };
 
+module.exports = ROS2D;
 /**
  * @author Bart van Vliet - bart@dobots.nl
  */
