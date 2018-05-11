@@ -17,7 +17,7 @@ ROS2D.NavigationArrow = function(options) {
   var that = this;
   options = options || {};
   var size = options.size || 10;
-  var strokeSize = options.strokeSize || 3;
+  var strokeSize = options.strokeSize || 1;
   var strokeColor = options.strokeColor || createjs.Graphics.getRGB(0, 0, 0);
   var fillColor = options.fillColor || createjs.Graphics.getRGB(255, 0, 0);
   var pulse = options.pulse;
@@ -26,9 +26,9 @@ ROS2D.NavigationArrow = function(options) {
   var graphics = new createjs.Graphics();
   // line width
   graphics.setStrokeStyle(strokeSize);
-  graphics.moveTo(-size / 2.0, -size / 2.0);
   graphics.beginStroke(strokeColor);
   graphics.beginFill(fillColor);
+  graphics.moveTo(-size / 2.0, -size / 2.0);
   graphics.lineTo(size, 0);
   graphics.lineTo(-size / 2.0, size / 2.0);
   graphics.closePath();

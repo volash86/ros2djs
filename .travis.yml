@@ -1,10 +1,13 @@
 language: node_js
 node_js:
-  - "0.10"
+  - "8.11"
 
 before_script:
   - npm install -g karma grunt-cli
   - npm install .
 
+install:
+  - npm install -g codecov
 script:
   - grunt build
+  - codecov

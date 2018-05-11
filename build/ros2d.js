@@ -243,7 +243,7 @@ ROS2D.OccupancyGridClient = function(options) {
   this.currentGrid = new createjs.Shape();
   this.rootObject.addChild(this.currentGrid);
   // work-around for a bug in easeljs -- needs a second object to render correctly
-  this.rootObject.addChild(new ROS2D.Grid({size:1}));
+  this.rootObject.addChild(new ROS2D.Grid({size: 1}));
 
   // subscribe to the topic
   var rosTopic = new ROSLIB.Topic({
@@ -467,7 +467,7 @@ ROS2D.NavigationArrow = function(options) {
   var that = this;
   options = options || {};
   var size = options.size || 10;
-  var strokeSize = options.strokeSize || 3;
+  var strokeSize = options.strokeSize || 1;
   var strokeColor = options.strokeColor || createjs.Graphics.getRGB(0, 0, 0);
   var fillColor = options.fillColor || createjs.Graphics.getRGB(255, 0, 0);
   var pulse = options.pulse;
@@ -476,9 +476,9 @@ ROS2D.NavigationArrow = function(options) {
   var graphics = new createjs.Graphics();
   // line width
   graphics.setStrokeStyle(strokeSize);
-  graphics.moveTo(-size / 2.0, -size / 2.0);
   graphics.beginStroke(strokeColor);
   graphics.beginFill(fillColor);
+  graphics.moveTo(-size / 2.0, -size / 2.0);
   graphics.lineTo(size, 0);
   graphics.lineTo(-size / 2.0, size / 2.0);
   graphics.closePath();
@@ -1083,7 +1083,7 @@ ROS2D.Viewer = function(options) {
   document.getElementById(divID).appendChild(canvas);
 
   // update at 30fps
-  createjs.Ticker.setFPS(30);
+  createjs.Ticker.setFPS(12);
   createjs.Ticker.addEventListener('tick', this.scene);
 };
 
@@ -1130,6 +1130,7 @@ ROS2D.Viewer.prototype.shift = function(x, y) {
 };
 
 module.exports = ROS2D;
+
 /**
  * @author Bart van Vliet - bart@dobots.nl
  */
